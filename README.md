@@ -77,6 +77,7 @@ Before running CareerCraft locally, ensure you have installed the following:
 | :--- | :--- | :--- |
 | **Node.js** (includes npm) | `v18.0` or higher | [Download Node.js](https://nodejs.org/en/download/) |
 | **Python** | `v3.10` or higher | [Download Python](https://www.python.org/downloads/) |
+| **MiKTeX / LaTeX Compiler** | Latest | [Download MiKTeX (LaTeX Engine)](https://miktex.org/download) |
 | **Git** | Latest | [Download Git](https://git-scm.com/downloads) |
 | **VS Code** (Optional IDE) | Latest | [Download VS Code](https://code.visualstudio.com/) |
 
