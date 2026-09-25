@@ -13,6 +13,7 @@ def root_redirect(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('careercraft.api_urls')),
     path('', root_redirect),
     path('dashboard/', include('dashboard.urls')),
     path('accounts/', include('accounts.urls')),

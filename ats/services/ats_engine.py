@@ -3,7 +3,10 @@ import logging
 import re
 from functools import lru_cache
 
-import spacy
+try:
+    import spacy
+except ImportError:
+    spacy = None
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 

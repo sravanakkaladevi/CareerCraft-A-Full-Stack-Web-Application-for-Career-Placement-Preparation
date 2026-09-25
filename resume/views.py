@@ -323,3 +323,88 @@ def ats_analyzer(request):
             }
 
     return render(request, "resume/ats.html", context)
+
+
+@login_required
+def export_to_resumeforge(request):
+    """
+    Seamless integration bridge: Transfers CareerCraft form context into ResumeForge structured database
+    and redirects the authenticated user directly into the React + TypeScript LaTeX Editor!
+    """
+    from .models import Resume, PersonalInfo, Education, Experience, Project, SkillCategory, Template
+
+    if request.method == "POST":
+        data = _build_resume_context(request)
+    else:
+        data = {}
+
+    tmpl = Template.objects.filter(name="Computer Vision / ML Engineer").first() or Template.objects.first()
+    
+    title = f"{data.get('full_name', request.user.username)}'s Resume" if data.get('full_name') else f"{request.user.username}'s Advanced Resume"
+    
+    resume_obj, _ = Resume.objects.get_or_create(
+        user=request.user,
+        title=title,
+        defaults={
+            'target_role': 'Software Engineer / ML Developer',
+            'template': tmpl,
+            'section_order': ['personal', 'summary', 'skills', 'experience', 'projects', 'certifications', 'education']
+        }
+    )
+
+    if data.get('full_name'):
+        PersonalInfo.objects.update_or_create(
+            resume=resume_obj,
+            defaults={
+                'full_name': data.get('full_name', ''),
+                'email': data.get('email', ''),
+                'phone': data.get('phone', ''),
+                'location': '',
+                'linkedin': data.get('linkedin', ''),
+                'github': data.get('github', ''),
+                'portfolio': data.get('portfolio', ''),
+                'summary': data.get('summary', '')
+            }
+        )
+
+        if data.get('education_list'):
+            resume_obj.educations.all().delete()
+            for idx, ed in enumerate(data['education_list']):
+                Education.objects.create(
+                    resume=resume_obj,
+                    institution=ed.get('college', ''),
+                    degree=ed.get('degree', ''),
+                    start_date=ed.get('year', ''),
+                    end_date='',
+                    gpa=ed.get('grade', ''),
+                    order=idx+1
+                )
+
+        if data.get('experience_list'):
+            resume_obj.experiences.all().delete()
+            for idx, exp in enumerate(data['experience_list']):
+                Experience.objects.create(
+                    resume=resume_obj,
+                    company=exp.get('org', ''),
+                    position=exp.get('role', ''),
+                    location=exp.get('location', ''),
+                    start_date=exp.get('duration', ''),
+                    end_date='',
+                    is_current=True,
+                    description_bullets=exp.get('points', []),
+                    order=idx+1
+                )
+
+        if data.get('projects_list'):
+            resume_obj.projects.all().delete()
+            for idx, pr in enumerate(data['projects_list']):
+                Project.objects.create(
+                    resume=resume_obj,
+                    name=pr.get('title', ''),
+                    technologies=[pr.get('tech', '')] if pr.get('tech') else [],
+                    github_url=pr.get('github', ''),
+                    bullet_points=pr.get('points', []),
+                    order=idx+1
+                )
+
+    return redirect(f"http://localhost:5173/editor/{resume_obj.id}")

@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 239 84% 60%;
+    --primary-foreground: 210 40% 98%;
+    --radius: 1rem;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+.font-serif-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Custom Soft Light Shadows & Micro Effects */
+.shadow-soft {
+  box-shadow: 0 10px 30px -10px rgba(148, 163, 184, 0.25), 0 4px 12px -4px rgba(148, 163, 184, 0.15);
+}
+
+.shadow-glow-indigo {
+  box-shadow: 0 12px 36px -8px rgba(99, 102, 241, 0.22), 0 4px 12px -2px rgba(99, 102, 241, 0.12);
+}
+
+.shadow-card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02), 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+/* Background grid pattern */
+.bg-grid-light {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
+}
+
+/* Paper Canvas styling for real PDF feel */
+.paper-canvas {
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Auto-scrolling Carousel Right-to-Left Marquee */
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl:hover,
+.animate-marquee-rtl:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-rtl {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Move Toast Notification Close 'X' Button to the Right Side */
+[data-sonner-toast] [data-close-button] {
+  left: auto !important;
+  right: 8px !important;
+  top: 8px !important;
+  transform: none !important;
+}
+

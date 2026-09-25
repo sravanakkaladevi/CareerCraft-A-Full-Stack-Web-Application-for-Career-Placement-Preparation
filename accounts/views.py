@@ -20,12 +20,20 @@ def login_view(request):
         password = request.POST.get('password')
         if request.user.is_authenticated:
             logout(request)
+        
         user = authenticate(request, username=username, password=password)
+        if user is None and username and '@' in username:
+            try:
+                user_obj = User.objects.get(email=username)
+                user = authenticate(request, username=user_obj.username, password=password)
+            except User.DoesNotExist:
+                user = None
+
         if user is not None:
             login(request, user)
             return redirect('dashboard')
         else:
-            messages.error(request, 'Invalid username or password')
+            messages.error(request, 'Invalid username/email or password')
     return render(request, 'accounts/login.html', {
         'show_switch_notice': request.user.is_authenticated,
         **get_profile_setup_choices(),

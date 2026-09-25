@@ -1,6 +1,9 @@
 import io
 
-from pdfminer.high_level import extract_text
+try:
+    from pdfminer.high_level import extract_text
+except ImportError:
+    extract_text = None
 
 
 def extract_text_from_pdf(file):

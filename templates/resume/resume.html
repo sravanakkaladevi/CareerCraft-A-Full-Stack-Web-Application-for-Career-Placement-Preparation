@@ -54,6 +54,19 @@
 <div class="success-banner">Resume preview updated. Review it on the right, then download the PDF when it looks good.</div>
 {% endif %}
 
+<div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 18px 24px; color: white; display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 25px rgba(15,23,42,0.15);">
+    <div>
+        <div style="font-weight: 800; font-size: 15px; color: #38bdf8;">🚀 ResumeForge Advanced LaTeX Engine</div>
+        <div style="font-size: 12px; color: #94a3b8; margin-top: 2px;">Open the React + TypeScript document editor with live LaTeX PDF preview, section drag-and-drop, and version history.</div>
+    </div>
+    <form action="{% url 'export_to_resumeforge' %}" method="POST" style="margin: 0;">
+        {% csrf_token %}
+        <button type="submit" class="btn-blue" style="background: #38bdf8; color: #0f172a; font-weight: 700; white-space: nowrap; border: none; padding: 10px 18px; border-radius: 8px; font-size: 12px; cursor: pointer;">
+            Open Advanced Editor (ResumeForge) →
+        </button>
+    </form>
+</div>
+
 <div class="resume-layout">
     <div class="form-card">
         <div class="form-card-title">Build Your Professional Resume</div>
