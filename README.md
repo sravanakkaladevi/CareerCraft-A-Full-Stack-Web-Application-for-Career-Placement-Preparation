@@ -78,6 +78,7 @@ Before running CareerCraft locally, ensure you have installed the following:
 | **Node.js** (includes npm) | ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white) | `v18.0` or higher | [Download Node.js](https://nodejs.org/en/download/) |
 | **Python** | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) | `v3.10` or higher | [Download Python](https://www.python.org/downloads/) |
 | **MiKTeX / LaTeX Compiler** | ![LaTeX](https://img.shields.io/badge/LaTeX_MiKTeX-008080?logo=latex&logoColor=white) | Latest | [Download MiKTeX (LaTeX Engine)](https://miktex.org/download) |
+| **Docker Desktop** (Optional) | ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) | Latest | [Download Docker Desktop](https://www.docker.com/products/docker-desktop/) |
 | **Git** | ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white) | Latest | [Download Git](https://git-scm.com/downloads) |
 | **VS Code** (Optional IDE) | ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white) | Latest | [Download VS Code](https://code.visualstudio.com/) |
 
