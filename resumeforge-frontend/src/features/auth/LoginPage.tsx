@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
   FileText, Sparkles, HelpCircle, BookOpen, Mail, Lock, Eye, EyeOff, 
-  ArrowRight, Check, Sparkle, LayoutDashboard 
+  ArrowRight, Check, Sparkle, LayoutDashboard, User as UserIcon 
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { authApi } from '../../services/api';
@@ -267,16 +267,22 @@ export const LoginPage: React.FC<LoginPageProps> = ({ user, setUser, isRegister 
               {/* Direct Login/Register Form matching screenshot */}
               <form onSubmit={handleSubmit} className="space-y-4">
                 
-                {/* Username or Email Input (for Signup or Login) */}
+                {/* Username / Email Input */}
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-700">Username or Email Address</label>
+                  <label className="text-xs font-bold text-slate-700">
+                    {isSignUp ? 'Username' : 'Username or Email Address'}
+                  </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    {isSignUp ? (
+                      <UserIcon className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    ) : (
+                      <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    )}
                     <input
                       type="text"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
-                      placeholder="Username or email (e.g. sravan admin)"
+                      placeholder={isSignUp ? 'Choose a username (e.g. sravan_dev)' : 'Username or email (e.g. sravan admin)'}
                       className="w-full bg-white border border-slate-200 rounded-2xl pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
                       required
                     />
