@@ -167,12 +167,12 @@ npm run dev
 
 ---
 
-## 🔑 Default Credentials
+## 🔑 Default Demo Credentials
 
 | Account Role | Username / Email | Password | Access Rights |
 | :--- | :--- | :--- | :--- |
-| **Super Admin** | `sravan admin` | `sravan123` | Full Admin Control + Full App Access |
-| **Candidate Demo** | `candidate` | `candidate123` | User Dashboard & AI Tools |
+| **Super Admin** | `admin` | `admin123` | Full Admin Control + Management Features |
+| **Candidate Demo** | `candidate` | `candidate123` | Candidate User Dashboard & AI Tools |
 
 ---
 
