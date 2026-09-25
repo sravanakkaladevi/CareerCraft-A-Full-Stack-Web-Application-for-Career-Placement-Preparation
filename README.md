@@ -73,13 +73,13 @@
 
 Before running CareerCraft locally, ensure you have installed the following:
 
-| Tool / Dependency | Recommended Version | Official Download Link |
-| :--- | :--- | :--- |
-| **Node.js** (includes npm) | `v18.0` or higher | [Download Node.js](https://nodejs.org/en/download/) |
-| **Python** | `v3.10` or higher | [Download Python](https://www.python.org/downloads/) |
-| **MiKTeX / LaTeX Compiler** | Latest | [Download MiKTeX (LaTeX Engine)](https://miktex.org/download) |
-| **Git** | Latest | [Download Git](https://git-scm.com/downloads) |
-| **VS Code** (Optional IDE) | Latest | [Download VS Code](https://code.visualstudio.com/) |
+| Tool / Dependency | Logo Badge | Recommended Version | Official Download Link |
+| :--- | :---: | :--- | :--- |
+| **Node.js** (includes npm) | ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white) | `v18.0` or higher | [Download Node.js](https://nodejs.org/en/download/) |
+| **Python** | ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) | `v3.10` or higher | [Download Python](https://www.python.org/downloads/) |
+| **MiKTeX / LaTeX Compiler** | ![LaTeX](https://img.shields.io/badge/LaTeX_MiKTeX-008080?logo=latex&logoColor=white) | Latest | [Download MiKTeX (LaTeX Engine)](https://miktex.org/download) |
+| **Git** | ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white) | Latest | [Download Git](https://git-scm.com/downloads) |
+| **VS Code** (Optional IDE) | ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?logo=visualstudiocode&logoColor=white) | Latest | [Download VS Code](https://code.visualstudio.com/) |
 
 ---
 
@@ -165,16 +165,7 @@ npm run dev
    - Enter your **OpenAI API Key** (`sk-proj-...`) or **Google Gemini Key** (`AIzaSy...`).
    - Click **Save API Key Settings**.
 
----
 
-## 🔑 Default Demo Credentials
-
-| Account Role | Username / Email | Password | Access Rights |
-| :--- | :--- | :--- | :--- |
-| **Super Admin** | `admin` | `admin123` | Full Admin Control + Management Features |
-| **Candidate Demo** | `candidate` | `candidate123` | Candidate User Dashboard & AI Tools |
-
----
 
 ## 🚀 Pushing Changes to GitHub
 
